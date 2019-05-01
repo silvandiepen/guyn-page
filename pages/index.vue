@@ -79,6 +79,7 @@ export default {
 	align-items: center;
 	justify-content: center;
 	position: relative;
+	background-color: white;
 	svg {
 		position: relative;
 		z-index: 10;
@@ -90,7 +91,7 @@ export default {
 		content: '';
 		width: 100%;
 		height: 100%;
-		background-image: linear-gradient(to bottom, color(Purple), color(Black, 0));
+		background-image: linear-gradient(to bottom, color(Beige), color(Beige, 0));
 		transform: translateY(calc(var(--scroll-top-percentage) * -1));
 		opacity: calc(1 / var(--scroll-top-percentage));
 	}

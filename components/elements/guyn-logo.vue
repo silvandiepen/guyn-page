@@ -73,22 +73,23 @@ svg {
 	path {
 		transform-origin: center;
 		transform-box: fill-box;
+		mix-blend-mode: multiply;
 
 		&:nth-child(1) {
-			fill: color(BlueDark);
+			fill: color(Red);
 			transform: translateY(calc(var(--scroll-top) * -0.1px)) scale(calc(var(--scroll-top) * 0.01 + 1));
 		}
 		&:nth-child(2) {
-			fill: color(Skyblue);
+			fill: color(Dark);
 			transform: translateY(calc(var(--scroll-top) * -0.2px)) scale(calc(var(--scroll-top) * 0.015 + 1));
 		}
 		&:nth-child(3) {
-			fill: color(GreenDark);
+			fill: color(Yellow);
 			transform: translateY(calc(var(--scroll-top) * -0.3px)) scale(calc(var(--scroll-top) * 0.02 + 1));
 		}
 		&:nth-child(4) {
-			fill: color(TurquoiseDark);
-			transform: translateY(calc(var(--scroll-top) * -0.4px)) scale(calc(var(--scroll-top) * 0.025 + 1));
+			fill: color(PurpleDark);
+			transform: translateY(calc(var(--scroll-top) * -0.6px)) scale(calc(var(--scroll-top) * 0.025 + 1));
 		}
 	}
 }

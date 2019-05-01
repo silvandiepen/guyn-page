@@ -34,14 +34,12 @@ export default {
 		flex-wrap: wrap;
 		// flex-flow: column wrap;
 		align-content: space-between;
-		@media #{$small-only} {
-			width: calc(100% + 2rem);
-			margin-left: -1rem;
-		}
+		width: calc(100% + 5rem);
+		margin-left: -2.5rem;
 	}
 	&__item {
 		@media #{$small-only} {
-			width: 33.33%;
+			// width: 33.33%;
 		}
 		padding: 0.5rem;
 		&:hover {
