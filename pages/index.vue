@@ -6,7 +6,20 @@
 		<section class="colors">
 			<div class="row center">
 				<div class="column small-full medium-two-third">
+					<h3>Colors</h3>
 					<ColorOverview></ColorOverview>
+				</div>
+			</div>
+		</section>
+		<section class="install background--dark">
+			<div class="row center">
+				<div class="column small-full medium-two-third">
+					<h3>Installation</h3>
+					<p>
+						The colorset of Guyn is usable in many different ways. Just the colorset is a npm package which includes all kinds
+						of formats like json, scss (map), css (custom properties), less (list) and a includable js file.
+					</p>
+					<code><pre>npm install guyn</pre></code>
 				</div>
 			</div>
 		</section>
@@ -73,12 +86,16 @@ export default {
 		content: '';
 		width: 100%;
 		height: 100%;
-		background-image: linear-gradient(to bottom, color(Beige), color(Beige, 0));
+		background-image: linear-gradient(to bottom, color(Black), color(Black, 0));
 		transform: translateY(calc(var(--scroll-top-percentage) * -1));
 		opacity: calc(1 * var(--scroll-top-percentage));
 	}
 }
 .colors {
+	padding: grid(3 0);
+	background: white;
+}
+.install {
 	padding: grid(3 0);
 }
 </style>

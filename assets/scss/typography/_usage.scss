@@ -9,3 +9,17 @@ h6 {
     font-weight: 400;
   }
 }
+
+p{
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+code{
+  display: block;
+  background-color: color(Gray,.5);
+  padding: 1rem;
+  border-radius: $base-border-radius;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
