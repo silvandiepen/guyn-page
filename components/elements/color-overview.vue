@@ -1,6 +1,6 @@
 <template>
 	<section class="colors">
-		<ul class="colors__list">
+		<ul v-trigger class="colors__list">
 			<li v-for="(color, value, index) in GuynColors" :key="index" class="colors__item">
 				<div class="colors__block" :class="`background--${value}`">
 					<span class="colors__text">{{ value }}</span>
@@ -65,6 +65,20 @@ export default {
 				width: 0;
 				order: 2;
 			}
+		}
+		.trigger & {
+			transition: opacity $base-transition $base-cubic-bezier, transform $base-transition $base-cubic-bezier;
+			opacity: 0;
+			transform: translateY(100%);
+			@for $i from 1 through 100 {
+				&:nth-child(#{$i}) {
+					transition-delay: #{$i / 30}s;
+				}
+			}
+		}
+		.trigger.active & {
+			opacity: 1;
+			transform: translateY(0%);
 		}
 	}
 	&__block {

@@ -13,10 +13,24 @@
 				</div>
 			</div>
 		</section>
-		<section class="install background--dark">
-			<div class="row center">
+		<section class="install background--skybluedark">
+			<div v-parallax class="row center">
 				<div class="column small-full medium-two-third">
 					<h3 data-number="02">
+						About
+					</h3>
+					<p>
+						Guyn is made as a set to get some styling through a whole system. From websites, till the code editor, just to get
+						it all in line.
+					</p>
+					<p>Guyn is the Armenian word for color.</p>
+				</div>
+			</div>
+		</section>
+		<section class="install background--orange">
+			<div v-parallax class="row center">
+				<div class="column small-full medium-two-third">
+					<h3 data-number="03">
 						Installation
 					</h3>
 					<p>
@@ -27,12 +41,57 @@
 				</div>
 			</div>
 		</section>
+		<section class="install background--yellow">
+			<div v-parallax class="row center">
+				<div class="column small-full medium-two-third">
+					<h3 data-number="04">
+						Usage
+					</h3>
+					<h4>In code</h4>
+					<div class="row">
+						<div class="column small-full medium-half">
+							<p>
+								The colorset can be used for many purposes. The npm package includes a css, json, scss, less and javascript
+								file.
+							</p>
+						</div>
+						<div class="column small-full medium-half">
+							<details>
+								<summary>Json</summary>
+								<!-- {{ GuynColorsLess }} -->
+							</details>
+						</div>
+					</div>
+					<h4>As a theme</h4>
+					<div class="row">
+						<div class="column small-full medium-half">
+							<p>
+								There are different themes made with this colorset.
+							</p>
+						</div>
+						<div class="column small-full medium-half">
+							<ul>
+								<li>VSCode theme</li>
+								<li>iTerm theme</li>
+								<li>Atom theme</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 	</main>
 </template>
 
 <script>
 import ColorOverview from '~/components/elements/color-overview.vue';
 import GuynLogo from '~/components/elements/guyn-logo.vue';
+
+// import GuynColorsJson from '!!raw-loader!../node_modules/guyn/json/guyn.json';
+// import GuynColorsScss from '!!raw-loader!../node_modules/guyn/scss/guyn.scss';
+// import GuynColorsCss from '!!raw-loader!../node_modules/guyn/css/guyn.css';
+// import GuynColorsLess from '!!raw-loader!../node_modules/guyn/less/guyn.less';
+// import GuynColorsJs from '!!raw-loader!../node_modules/guyn/js/guyn.js';
 export default {
 	components: {
 		GuynLogo,
@@ -40,7 +99,14 @@ export default {
 	},
 	data() {
 		return {
-			offTop: 0
+			offTop: 0,
+			files: {
+				// json: GuynColorsJson,
+				// scss: GuynColorsScss,
+				// css: GuynColorsCss,
+				// less: GuynColorsLess,
+				// js: GuynColorsJs
+			}
 		};
 	},
 	mounted() {
@@ -117,7 +183,7 @@ section {
 		font-size: 1rem;
 		position: absolute;
 		left: 0;
-		padding: 1rem;
+		padding: 0 grid(1);
 		@media #{$small-only} {
 			position: relative;
 			padding: 1rem 0;
@@ -125,6 +191,9 @@ section {
 		&:before {
 			content: attr(data-number) '.';
 			font-weight: normal;
+		}
+		& + * {
+			margin: 0;
 		}
 	}
 }

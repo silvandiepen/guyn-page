@@ -35,7 +35,11 @@ export default {
 	/*
 	 ** Plugins to load before mounting the App
 	 */
-	plugins: [],
+	plugins: [
+		{
+			src: '~plugins/directives.js'
+		}
+	],
 
 	/*
 	 ** Nuxt.js modules
