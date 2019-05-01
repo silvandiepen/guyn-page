@@ -1,3 +1,4 @@
-$custom-colors: (
-  'Henris': #000000
-);
+@import '~guyn/scss/guyn.scss';
+
+$custom-colors: $guyn-colors;
+// @debug $guyn-colors;

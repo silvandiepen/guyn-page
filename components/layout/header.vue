@@ -1,7 +1,5 @@
 <template>
-	<header id="header" class="header">
-		<h3>{{ projectName }}</h3>
-	</header>
+	<header id="header" class="header"></header>
 </template>
 
 <script>

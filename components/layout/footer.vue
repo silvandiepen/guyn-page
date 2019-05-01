@@ -1,9 +1,5 @@
 <template>
-	<footer id="footer" class="footer">
-		<h5 class="sub">
-			the end..
-		</h5>
-	</footer>
+	<footer id="footer" class="footer"></footer>
 </template>
 
 <script>

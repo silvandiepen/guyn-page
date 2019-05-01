@@ -5,7 +5,7 @@ if (config.env === 'development') {
 	process.env.DEBUG = 'nuxt:*';
 }
 
-module.exports = {
+export default {
 	mode: 'universal',
 	env: {
 		environment: config.env || 'production'
