@@ -6,7 +6,9 @@
 		<section class="colors">
 			<div class="row center">
 				<div class="column small-full medium-two-third">
-					<h3>Colors</h3>
+					<h3 data-number="01">
+						Colors
+					</h3>
 					<ColorOverview></ColorOverview>
 				</div>
 			</div>
@@ -14,7 +16,9 @@
 		<section class="install background--dark">
 			<div class="row center">
 				<div class="column small-full medium-two-third">
-					<h3>Installation</h3>
+					<h3 data-number="02">
+						Installation
+					</h3>
 					<p>
 						The colorset of Guyn is usable in many different ways. Just the colorset is a npm package which includes all kinds
 						of formats like json, scss (map), css (custom properties), less (list) and a includable js file.
@@ -86,16 +90,41 @@ export default {
 		content: '';
 		width: 100%;
 		height: 100%;
-		background-image: linear-gradient(to bottom, color(Black), color(Black, 0));
+		background-image: linear-gradient(to bottom, color(Purple), color(Black, 0));
 		transform: translateY(calc(var(--scroll-top-percentage) * -1));
-		opacity: calc(1 * var(--scroll-top-percentage));
+		opacity: calc(1 / var(--scroll-top-percentage));
 	}
 }
 .colors {
 	padding: grid(3 0);
 	background: white;
+	@media #{$small-only} {
+		padding: 2rem;
+	}
 }
 .install {
 	padding: grid(3 0);
+	@media #{$small-only} {
+		padding: 2rem;
+	}
+}
+section {
+	@media #{$small-only} {
+		padding: 2rem;
+	}
+	h3[data-number] {
+		font-size: 1rem;
+		position: absolute;
+		left: 0;
+		padding: 1rem;
+		@media #{$small-only} {
+			position: relative;
+			padding: 1rem 0;
+		}
+		&:before {
+			content: attr(data-number) '.';
+			font-weight: normal;
+		}
+	}
 }
 </style>
