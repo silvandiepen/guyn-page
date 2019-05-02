@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "Colors",
 	"author": "Sil van Diepen",
+	"title": "Guyn",
 	"private": true,
 	"scripts": {
 		"dev": "sh scripts/dev.sh",
