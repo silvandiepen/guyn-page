@@ -74,6 +74,7 @@ export default {
 		}
 		@media #{$medium-up} {
 			width: 33.33%;
+			padding: 0.5rem;
 		}
 		@media #{$small-only} {
 			& + & {
@@ -85,7 +86,6 @@ export default {
 		// @media #{$xxlarge-up} {
 		// 	width: 33.33%;
 		// }
-		padding: 0.5rem;
 		&:hover {
 			.colors-details__text {
 				opacity: 1;
@@ -124,9 +124,9 @@ export default {
 		display: block;
 		// border-radius: $base-border-radius;
 		overflow: hidden;
-		width: grid(2);
+		width: grid(1.5);
 		flex-shrink: 0;
-		@include min-(width, 2, 100);
+		@include min-(width, 2, 60);
 		@media #{$medium-up} {
 			height: grid(2);
 			width: 100%;
@@ -136,6 +136,9 @@ export default {
 		padding: 2rem;
 		flex-grow: 1;
 		width: 100%;
+		@media #{$small-only} {
+			padding: 1rem;
+		}
 		dl {
 			display: flex;
 			opacity: 0.5;
