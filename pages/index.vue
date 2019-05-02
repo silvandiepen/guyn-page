@@ -72,11 +72,21 @@
 						<div class="column small-full medium-half">
 							<ul>
 								<li>VSCode theme</li>
-								<li>iTerm theme</li>
+								<li><a href="/themes/guyn-iterm.zip" download>iTerm theme</a></li>
 								<li>Atom theme</li>
 							</ul>
 						</div>
 					</div>
+				</div>
+			</div>
+		</section>
+		<section class="colors">
+			<div class="row center">
+				<div class="column small-full medium-two-third">
+					<h3 data-number="05">
+						Color details
+					</h3>
+					<ColorDetails></ColorDetails>
 				</div>
 			</div>
 		</section>
@@ -85,6 +95,7 @@
 
 <script>
 import ColorOverview from '~/components/elements/color-overview.vue';
+import ColorDetails from '~/components/elements/color-details.vue';
 import GuynLogo from '~/components/elements/guyn-logo.vue';
 
 // import GuynColorsJson from '!!raw-loader!../node_modules/guyn/json/guyn.json';
@@ -95,7 +106,8 @@ import GuynLogo from '~/components/elements/guyn-logo.vue';
 export default {
 	components: {
 		GuynLogo,
-		ColorOverview
+		ColorOverview,
+		ColorDetails
 	},
 	data() {
 		return {
@@ -166,18 +178,18 @@ export default {
 	padding: grid(3 0);
 	background: white;
 	@media #{$small-only} {
-		padding: 2rem;
+		padding: 4rem 2rem;
 	}
 }
 .install {
 	padding: grid(3 0);
 	@media #{$small-only} {
-		padding: 2rem;
+		padding: 4rem 2rem;
 	}
 }
 section {
 	@media #{$small-only} {
-		padding: 2rem;
+		padding: 4rem 2rem;
 	}
 	h3[data-number] {
 		font-size: 1rem;

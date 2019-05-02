@@ -1,9 +1,11 @@
 <template>
-	<section class="color-overview">
-		<ul class="color-overview__list">
-			<li v-for="(color, value, index) in GuynColors" :key="index" v-trigger class="color-overview__item">
-				<div class="color-overview__block" :class="`background--${value}`">
-					<span class="color-overview__text">{{ value }}</span>
+	<section class="color-details">
+		<ul v-trigger class="color-details__list">
+			<li v-for="(color, value, index) in GuynColors" :key="index" class="color-details__item">
+				<div class="color-details__block" :class="`background--${value}`"></div>
+				<div class="color-details__info">
+					<span class="color-details__text">{{ value }}</span>
+					<span class="color-details__color">{{ color }}</span>
 				</div>
 			</li>
 		</ul>
@@ -26,14 +28,12 @@ export default {
 <style lang="scss">
 @import '~tools';
 
-.color-overview {
+.color-details {
 	&__list {
 		width: 100%;
 		padding: 0.5rem;
 		display: flex;
 		flex-wrap: wrap;
-		// flex-flow: column wrap;
-		align-content: space-between;
 		width: calc(100% + 5rem);
 		margin-left: -2.5rem;
 	}
@@ -41,9 +41,11 @@ export default {
 		@media #{$small-only} {
 			// width: 33.33%;
 		}
+		display: flex;
+		width: 33.33%;
 		padding: 0.5rem;
 		&:hover {
-			.colors__text {
+			.colors-details__text {
 				opacity: 1;
 				transform: translateY(0%);
 			}
@@ -66,38 +68,42 @@ export default {
 				order: 2;
 			}
 		}
-		&.trigger {
+		.trigger & {
 			transition: opacity $base-transition $base-cubic-bezier, transform $base-transition $base-cubic-bezier;
 			opacity: 0;
 			transform: translateY(100%);
-			transition-delay: 0s;
-		}
-		&.trigger.active {
-			opacity: 1;
-			transform: translateY(0%);
 			@for $i from 1 through 100 {
 				&:nth-child(#{$i}) {
 					transition-delay: #{$i / 30}s;
 				}
 			}
 		}
+		.trigger.active & {
+			opacity: 1;
+			transform: translateY(0%);
+		}
 	}
 	&__block {
 		display: block;
-		width: 100%;
-		// height: 0;
-		// padding-bottom: 100%;
 		border-radius: $base-border-radius;
 		overflow: hidden;
+		width: grid(2);
+		height: grid(2);
+		flex-shrink: 0;
+	}
+	&__info {
+		padding: 1rem;
+		flex-grow: 1;
+		width: 100%;
+	}
+	&__color {
+		opacity: 0.5;
 	}
 
 	&__text {
-		opacity: 0;
-		transition: transform $base-transition ease-in-out;
-		transform: translateY(25%);
-		padding: 1rem;
 		display: block;
 		pointer-events: none;
+		font-weight: 500;
 	}
 }
 </style>
