@@ -64,10 +64,16 @@ export default {
 		display: flex;
 		border-radius: 5px;
 		overflow: hidden;
+		@media #{$medium-up} {
+			flex-direction: column;
+		}
 	}
 	&__item {
 		@media #{$small-only} {
 			width: 100%;
+		}
+		@media #{$medium-up} {
+			width: 33.33%;
 		}
 		@media #{$small-only} {
 			& + & {
@@ -121,6 +127,10 @@ export default {
 		width: grid(2);
 		flex-shrink: 0;
 		@include min-(width, 2, 100);
+		@media #{$medium-up} {
+			height: grid(2);
+			width: 100%;
+		}
 	}
 	&__info {
 		padding: 2rem;
