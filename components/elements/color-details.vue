@@ -4,7 +4,7 @@
 			<li v-for="(color, value, index) in GuynColors" :key="index" class="color-details__item">
 				<div class="color-details__block" :class="`background--${value}`"></div>
 				<div class="color-details__info">
-					<h4>{{ value }}</h4>
+					<h5>{{ value }}</h5>
 					<dl>
 						<dt>hex</dt>
 						<dd>{{ color }}</dd>
@@ -16,6 +16,14 @@
 					<dl>
 						<dt>css</dt>
 						<dd>--guyn-{{ value }}</dd>
+					</dl>
+					<dl>
+						<dt>less</dt>
+						<dd>@guyn-{{ value }}</dd>
+					</dl>
+					<dl>
+						<dt>js</dt>
+						<dd>guyn.{{ value }}</dd>
 					</dl>
 				</div>
 			</li>
