@@ -27,11 +27,11 @@
 				</div>
 			</div>
 		</section>
-		<section class="install background--dark">
+		<section class="install background--dark default-section">
 			<div v-parallax class="row center">
 				<div class="column small-full medium-two-third">
 					<h3 data-number="03">
-						Installation
+						Install
 					</h3>
 					<p>
 						The colorset of Guyn is usable in many different ways. Just the colorset is a npm package which includes all kinds
@@ -41,7 +41,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="install background--darklight default-section">
+		<section class="usage background--darklight default-section">
 			<div v-parallax class="row center">
 				<div class="column small-full medium-two-third">
 					<h3 data-number="04">
