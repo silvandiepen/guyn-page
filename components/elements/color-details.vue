@@ -4,8 +4,19 @@
 			<li v-for="(color, value, index) in GuynColors" :key="index" class="color-details__item">
 				<div class="color-details__block" :class="`background--${value}`"></div>
 				<div class="color-details__info">
-					<span class="color-details__text">{{ value }}</span>
-					<span class="color-details__color">{{ color }}</span>
+					<h4>{{ value }}</h4>
+					<dl>
+						<dt>hex</dt>
+						<dd>{{ color }}</dd>
+					</dl>
+					<dl>
+						<dt>scss</dt>
+						<dd>$guyn-{{ value }}</dd>
+					</dl>
+					<dl>
+						<dt>css</dt>
+						<dd>--guyn-{{ value }}</dd>
+					</dl>
 				</div>
 			</li>
 		</ul>
@@ -34,12 +45,11 @@ export default {
 		padding: 0.5rem;
 		display: flex;
 		flex-wrap: wrap;
-		width: calc(100% + 5rem);
-		margin-left: -2.5rem;
+		width: 100%;
 	}
 	&__item {
 		@media #{$small-only} {
-			// width: 33.33%;
+			width: 100%;
 		}
 		display: flex;
 		width: 33.33%;
@@ -90,11 +100,43 @@ export default {
 		width: grid(2);
 		height: grid(2);
 		flex-shrink: 0;
+		@media #{$small-only} {
+			width: grid(5);
+			height: grid(5);
+		}
 	}
 	&__info {
 		padding: 1rem;
 		flex-grow: 1;
 		width: 100%;
+		dl {
+			display: flex;
+			opacity: 0.5;
+			font-size: rem(14);
+			&:first-child {
+				opacity: 1;
+				dd,
+				dt {
+					opacity: 1;
+				}
+			}
+			dd {
+				white-space: nowrap;
+			}
+			dt {
+				width: 3rem;
+				opacity: 0.5;
+				&:empty {
+					width: 0;
+					& + dd {
+						font-weight: bold;
+					}
+				}
+			}
+			& + dl {
+				margin-top: 0.5rem;
+			}
+		}
 	}
 	&__color {
 		opacity: 0.5;

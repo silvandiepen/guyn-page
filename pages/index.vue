@@ -13,7 +13,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="install background--skybluedark">
+		<section class="install background--darkdark">
 			<div v-parallax class="row center">
 				<div class="column small-full medium-two-third">
 					<h3 data-number="02">
@@ -27,7 +27,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="install background--orange">
+		<section class="install background--dark">
 			<div v-parallax class="row center">
 				<div class="column small-full medium-two-third">
 					<h3 data-number="03">
@@ -41,7 +41,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="install background--yellow">
+		<section class="install background--darklight">
 			<div v-parallax class="row center">
 				<div class="column small-full medium-two-third">
 					<h3 data-number="04">
@@ -80,9 +80,9 @@
 				</div>
 			</div>
 		</section>
-		<section class="colors">
+		<section class="color-details">
 			<div class="row center">
-				<div class="column small-full medium-two-third">
+				<div class="column small-full large-two-third">
 					<h3 data-number="05">
 						Color details
 					</h3>
@@ -181,6 +181,13 @@ export default {
 		padding: 4rem 2rem;
 	}
 }
+.color-details {
+	padding: grid(3 0);
+	background: white;
+	@media #{$small-only} {
+		padding: 4rem 2rem;
+	}
+}
 .install {
 	padding: grid(3 0);
 	@media #{$small-only} {
@@ -192,6 +199,7 @@ section {
 		padding: 4rem 2rem;
 	}
 	h3[data-number] {
+		opacity: 0.5;
 		font-size: 1rem;
 		position: absolute;
 		left: 0;
