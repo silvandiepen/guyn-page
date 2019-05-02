@@ -1,34 +1,36 @@
 <template>
-	<section class="color-details">
-		<ul v-trigger class="color-details__list">
-			<li v-for="(color, value, index) in GuynColors" :key="index" class="color-details__item">
-				<div class="color-details__block" :class="`background--${value}`"></div>
-				<div class="color-details__info">
-					<h5>{{ value }}</h5>
-					<dl>
-						<dt>hex</dt>
-						<dd>{{ color }}</dd>
-					</dl>
-					<dl>
-						<dt>scss</dt>
-						<dd>$guyn-{{ value }}</dd>
-					</dl>
-					<dl>
-						<dt>css</dt>
-						<dd>--guyn-{{ value }}</dd>
-					</dl>
-					<dl>
-						<dt>less</dt>
-						<dd>@guyn-{{ value }}</dd>
-					</dl>
-					<dl>
-						<dt>js</dt>
-						<dd>guyn.{{ value }}</dd>
-					</dl>
+	<div class="color-details">
+		<ul class="color-details__list">
+			<li v-for="(color, value, index) in GuynColors" :key="index" v-trigger class="color-details__item">
+				<div class="color-details__container">
+					<div class="color-details__block" :class="`background--${value}`"></div>
+					<div class="color-details__info">
+						<h5>{{ value }}</h5>
+						<dl>
+							<dt>hex</dt>
+							<dd>{{ color }}</dd>
+						</dl>
+						<dl>
+							<dt>scss</dt>
+							<dd>$guyn-{{ value }}</dd>
+						</dl>
+						<dl>
+							<dt>css</dt>
+							<dd>--guyn-{{ value }}</dd>
+						</dl>
+						<dl>
+							<dt>less</dt>
+							<dd>@guyn-{{ value }}</dd>
+						</dl>
+						<dl>
+							<dt>js</dt>
+							<dd>guyn.{{ value }}</dd>
+						</dl>
+					</div>
 				</div>
 			</li>
 		</ul>
-	</section>
+	</div>
 </template>
 
 <script>
@@ -55,12 +57,28 @@ export default {
 		flex-wrap: wrap;
 		width: 100%;
 	}
+	&__container {
+		background-color: color(White);
+		box-shadow: 0 0 1rem 0 color(Black, 0.1);
+		width: 100%;
+		display: flex;
+		border-radius: 5px;
+		overflow: hidden;
+	}
 	&__item {
 		@media #{$small-only} {
 			width: 100%;
 		}
-		display: flex;
-		width: 33.33%;
+		@media #{$small-only} {
+			& + & {
+				margin: 0rem;
+				margin-top: 1rem;
+			}
+		}
+		width: 50%;
+		// @media #{$xxlarge-up} {
+		// 	width: 33.33%;
+		// }
 		padding: 0.5rem;
 		&:hover {
 			.colors-details__text {
@@ -86,35 +104,26 @@ export default {
 				order: 2;
 			}
 		}
-		.trigger & {
+		&.trigger {
 			transition: opacity $base-transition $base-cubic-bezier, transform $base-transition $base-cubic-bezier;
 			opacity: 0;
 			transform: translateY(100%);
-			@for $i from 1 through 100 {
-				&:nth-child(#{$i}) {
-					transition-delay: #{$i / 30}s;
-				}
-			}
 		}
-		.trigger.active & {
+		&.trigger.active {
 			opacity: 1;
 			transform: translateY(0%);
 		}
 	}
 	&__block {
 		display: block;
-		border-radius: $base-border-radius;
+		// border-radius: $base-border-radius;
 		overflow: hidden;
 		width: grid(2);
-		height: grid(2);
 		flex-shrink: 0;
-		@media #{$small-only} {
-			width: grid(5);
-			height: grid(5);
-		}
+		@include min-(width, 2, 100);
 	}
 	&__info {
-		padding: 1rem;
+		padding: 2rem;
 		flex-grow: 1;
 		width: 100%;
 		dl {
@@ -145,15 +154,6 @@ export default {
 				margin-top: 0.5rem;
 			}
 		}
-	}
-	&__color {
-		opacity: 0.5;
-	}
-
-	&__text {
-		display: block;
-		pointer-events: none;
-		font-weight: 500;
 	}
 }
 </style>

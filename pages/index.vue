@@ -3,7 +3,7 @@
 		<section ref="intro" class="intro">
 			<GuynLogo></GuynLogo>
 		</section>
-		<section class="colors">
+		<section class="colors background--white  default-section">
 			<div class="row center">
 				<div class="column small-full medium-two-third">
 					<h3 data-number="01">
@@ -13,7 +13,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="install background--darkdark">
+		<section class="install background--darkdark  default-section">
 			<div v-parallax class="row center">
 				<div class="column small-full medium-two-third">
 					<h3 data-number="02">
@@ -41,7 +41,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="install background--darklight">
+		<section class="install background--darklight default-section">
 			<div v-parallax class="row center">
 				<div class="column small-full medium-two-third">
 					<h3 data-number="04">
@@ -80,9 +80,9 @@
 				</div>
 			</div>
 		</section>
-		<section class="color-details">
+		<section class="colors background--white default-section">
 			<div class="row center">
-				<div class="column small-full large-two-third">
+				<div class="column small-full xlarge-two-third">
 					<h3 data-number="05">
 						Color details
 					</h3>
@@ -174,30 +174,13 @@ export default {
 		opacity: calc(1 / var(--scroll-top-percentage));
 	}
 }
-.colors {
-	padding: grid(3 0);
-	background: white;
-	@media #{$small-only} {
-		padding: 4rem 2rem;
-	}
-}
-.color-details {
-	padding: grid(3 0);
-	background: white;
-	@media #{$small-only} {
-		padding: 4rem 2rem;
-	}
-}
-.install {
+.default-section {
 	padding: grid(3 0);
 	@media #{$small-only} {
 		padding: 4rem 2rem;
 	}
 }
 section {
-	@media #{$small-only} {
-		padding: 4rem 2rem;
-	}
 	h3[data-number] {
 		opacity: 0.5;
 		font-size: 1rem;
