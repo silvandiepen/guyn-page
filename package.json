@@ -23,7 +23,7 @@
 		"@nuxtjs/google-analytics": "^2.2.0",
 		"@sil/scroll-parallax": "^1.0.2",
 		"@sil/scroll-trigger": "^1.1.0",
-		"guyn": "0.0.7",
+		"guyn": "0.0.8",
 		"nuxt": "^2.6.1"
 	},
 	"devDependencies": {
