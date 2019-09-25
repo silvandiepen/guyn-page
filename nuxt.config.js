@@ -76,7 +76,17 @@ export default {
 		 ** CSS
 		 */
 		extractCSS: true,
-
+		'html.minify': {
+			collapseBooleanAttributes: true,
+			decodeEntities: true,
+			minifyCSS: false,
+			minifyJS: true,
+			processConditionalComments: true,
+			removeEmptyAttributes: true,
+			removeRedundantAttributes: true,
+			trimCustomFragments: true,
+			useShortDoctype: true
+		},
 		/*
 		 ** Build plugins
 		 */
