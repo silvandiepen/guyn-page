@@ -39,7 +39,6 @@
 
 <script>
 export default {
-	components: {},
 	data() {
 		return {
 			offTop: 0

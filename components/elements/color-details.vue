@@ -1,7 +1,7 @@
 <template>
 	<div class="color-details">
 		<ul class="color-details__list">
-			<li v-for="(color, value, index) in GuynColors" :key="index" v-trigger class="color-details__item">
+			<li v-for="(color, value, index) in colors" :key="index" v-trigger class="color-details__item">
 				<div class="color-details__container">
 					<div class="color-details__block" :class="`background--${value}`"></div>
 					<div class="color-details__info">
@@ -34,14 +34,11 @@
 </template>
 
 <script>
-import GuynColors from '../../node_modules/guyn/json/guyn.json';
-
 export default {
-	components: {},
-	data() {
-		return {
-			GuynColors: GuynColors
-		};
+	computed: {
+		colors() {
+			return this.$store.getters['guyn/getColors'];
+		}
 	}
 };
 </script>

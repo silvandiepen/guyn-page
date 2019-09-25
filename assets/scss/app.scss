@@ -6,7 +6,7 @@
 $output: set-output(css, true);
 
 // Output the whole framework
-@import '~@henris/next';
+@import '~henris';
 
 // Defined settings
 @import 'tools/post';
@@ -15,6 +15,7 @@ $output: set-output(css, true);
 @import 'typography/typography';
 @import 'components/index';
 
-body,html{
+body,
+html {
 	background-color: color(DarkDark);
 }

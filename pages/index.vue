@@ -97,12 +97,8 @@
 import ColorOverview from '~/components/elements/color-overview.vue';
 import ColorDetails from '~/components/elements/color-details.vue';
 import GuynLogo from '~/components/elements/guyn-logo.vue';
+import GuynColors from '../node_modules/guyn/guyn/json/guyn.json';
 
-// import GuynColorsJson from '!!raw-loader!../node_modules/guyn/json/guyn.json';
-// import GuynColorsScss from '!!raw-loader!../node_modules/guyn/scss/guyn.scss';
-// import GuynColorsCss from '!!raw-loader!../node_modules/guyn/css/guyn.css';
-// import GuynColorsLess from '!!raw-loader!../node_modules/guyn/less/guyn.less';
-// import GuynColorsJs from '!!raw-loader!../node_modules/guyn/js/guyn.js';
 export default {
 	components: {
 		GuynLogo,
@@ -120,6 +116,9 @@ export default {
 				// js: GuynColorsJs
 			}
 		};
+	},
+	created() {
+		this.$store.dispatch('guyn/setColors', GuynColors);
 	},
 	mounted() {
 		const _this = this;
