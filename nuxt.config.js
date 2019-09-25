@@ -73,6 +73,11 @@ export default {
 	 */
 	build: {
 		/*
+		 ** CSS
+		 */
+		extractCSS: true,
+
+		/*
 		 ** Build plugins
 		 */
 		plugins: [],

@@ -75,7 +75,7 @@ svg {
 		mix-blend-mode: multiply;
 
 		&:nth-child(1) {
-			fill: color(Red);
+			fill: color(_Red);
 			transform: translateY(calc(var(--scroll-top) * -0.1px)) scale(calc(var(--scroll-top) * 0.01 + 1));
 		}
 		&:nth-child(2) {
@@ -83,7 +83,7 @@ svg {
 			transform: translateY(calc(var(--scroll-top) * -0.2px)) scale(calc(var(--scroll-top) * 0.015 + 1));
 		}
 		&:nth-child(3) {
-			fill: color(Yellow);
+			fill: color(_Yellow);
 			transform: translateY(calc(var(--scroll-top) * -0.3px)) scale(calc(var(--scroll-top) * 0.02 + 1));
 		}
 		&:nth-child(4) {
