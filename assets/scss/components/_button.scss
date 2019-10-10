@@ -1,0 +1,182 @@
+$button-font-family: inherit;
+$button-border-radius: 2rem;
+
+.button {
+	position: relative;
+	display: inline-block;
+	width: auto;
+	background: none;
+	font-size: inherit;
+	-webkit-appearance: none;
+	text-decoration: none;
+	& + .button {
+		margin-left: 1em;
+	}
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		height: 2px;
+		background-color: var(--section-background);
+	}
+	&--simple {
+		padding: 0.5rem 0;
+		color: inherit;
+		text-decoration: none;
+		@each $color-name, $color-value in $colors {
+			&.button--#{to-lower-case($color-name)}::before {
+				background-color: #{$color-value};
+			}
+		}
+		&::before {
+			height: 2px;
+		}
+		&:hover {
+			&::before {
+				animation: comeAndGo 1s forwards;
+				@at-root {
+					@keyframes comeAndGo {
+						0% {
+							transform: translateX(0);
+							opacity: 1;
+						}
+						35% {
+							transform: translateX(-50%);
+							opacity: 1;
+						}
+						49% {
+							transform: translateX(150%);
+							opacity: 0;
+						}
+						50% {
+							transform: translateX(-150%);
+							opacity: 0;
+						}
+						70% {
+							transform: translateX(50%);
+							opacity: 1;
+						}
+						100% {
+							transform: translateX(0);
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+	&--default {
+		padding: 0.75rem 1rem;
+		color: inherit;
+
+		color: currentColor;
+		font-weight: bold;
+		text-decoration: none;
+		border: none;
+		&::before {
+			width: 100%;
+			height: 100%;
+			content: '';
+			transform: translate(-50%, -50%) scale(var(--scale, 1));
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			border-width: 2px;
+			border-style: solid;
+			border-color: var(--section-color);
+		}
+		&:active::before {
+			background-color: var(--section-color);
+		}
+		&:focus {
+			outline: none;
+			&::before {
+				animation: bumpToRound 0.5s forwards;
+			}
+		}
+		&:hover {
+			&::before {
+				animation: bumpToRound 0.5s forwards;
+				@keyframes bumpToRound {
+					0% {
+						transform: translate(-50%, -50%) scale(1);
+						border-radius: 0rem;
+					}
+					25% {
+						transform: translate(-50%, -50%) scale(1.2);
+						border-radius: 0rem;
+					}
+					50% {
+						transform: translate(-50%, -50%) scale(0.8);
+						border-radius: 2rem;
+					}
+					75% {
+						transform: translate(-50%, -50%) scale(1.1);
+						border-radius: 2rem;
+					}
+					100% {
+						transform: translate(-50%, -50%) scale(1);
+						border-radius: 2rem;
+					}
+				}
+			}
+		}
+	}
+	&--bulb {
+		padding: 0.75rem 1rem;
+		color: inherit;
+		text-decoration: none;
+		clip-path: inset(0 0 0 0);
+		border-radius: 2rem;
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: var(--y);
+			left: var(--x);
+			// top: 0; left: 0;
+			border: 2px solid white;
+			transform: translate(-50%, -50%) scale(0.5);
+			// transform: translate(var(--x), var(--y));
+			border-radius: 50%;
+			width: 4rem;
+			height: 4rem;
+			pointer-events: none;
+			transition: transform 0.3s $base-cubic-bezier;
+		}
+		&:hover::before {
+			transform: translate(-50%, -50%) scale(1);
+		}
+		@each $color-name, $color-value in $colors {
+			&.button--#{to-lower-case($color-name)} {
+				background-color: #{$color-value};
+				color: #{contra($color-value)};
+				&::before {
+					// background-color: #{darken($color-value, 10%)};
+				}
+			}
+		}
+	}
+	&__text {
+		position: relative;
+		z-index: 1;
+		color: currentColor;
+	}
+}
+
+.button-group {
+	width: calc(100% + 1rem);
+	margin-left: -0.5rem;
+	margin-top: -0.5rem;
+	.button + .button {
+		margin: 0.5rem;
+	}
+	.button {
+		margin: 0.5rem;
+		width: auto;
+	}
+}

@@ -1,0 +1,40 @@
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	pointer-events: none;
+	z-index: 10;
+	opacity: 0;
+	&--active {
+		pointer-events: all;
+		opacity: 1;
+		.modal__background {
+			opacity: 1;
+		}
+		.modal__content {
+			opacity: 1;
+			transform: translate(-50%, -50%);
+		}
+	}
+	&__background {
+		top: 0;
+		left: 0;
+		width: 100vw;
+		background-color: color(Black, 0.5);
+		height: 100vh;
+		opacity: 0;
+		transition: opacity $base-transition $base-cubic-bezier;
+	}
+	&__content {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		z-index: 2;
+		padding: grid(1);
+		background-color: white;
+		transform: translate(-50%, 50%);
+		transition: transform $base-transition $base-cubic-bezier;
+	}
+}

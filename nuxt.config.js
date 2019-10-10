@@ -38,6 +38,9 @@ export default {
 	plugins: [
 		{
 			src: '~plugins/directives.js'
+		},
+		{
+			src: '~plugins/clipboard.js'
 		}
 	],
 
