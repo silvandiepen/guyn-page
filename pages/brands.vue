@@ -1,12 +1,11 @@
 <template>
 	<main class="page page--brands background--white">
-		<div class="brandlist" ref="brandList">
-			<ul v-if="brands" class="brandlist__list">
-				<!-- <ul v-if="brands" class="brandlist__list" :style="`transform: translateY(-${scrolled}%)`"> -->
-				<li v-for="(brand, idx) in brands" :key="idx" class="brandlist__item">{{ brand.title}}</li>
-			</ul>
-			{{ scrolled }}
-		</div>
+		<!-- <div class="brandlist" ref="brandList"> -->
+		<!-- <div v-if="brands" class="brandlist__list"> -->
+		<!-- <ul v-if="brands" class="brandlist__list" :style="`transform: translateY(-${scrolled}%)`"> -->
+		<!-- <li v-for="(brand, idx) in brands" :key="idx" class="brandlist__item">{{ brand.title}}</li> -->
+		<!-- </ul> -->
+		<!-- </div> -->
 		<section class="brands-intro">
 			<div class="row center">
 				<div class="column small-full medium-half">
@@ -342,8 +341,8 @@ export default {
 			position: absolute;
 			white-space: nowrap;
 			padding: 0.5rem;
-			background-color: color(Black);
-			color: color(White);
+			background-color: color(_Black);
+			color: color(_White);
 			transform: translateX(-50%) scale(0);
 			border-radius: 3px;
 			transition: transform $base-transition $base-cubic-bezier;
@@ -382,9 +381,9 @@ export default {
 		flex-wrap: wrap;
 	}
 	&__search {
-		--input-text-input-border: #{color(Black)};
+		--input-text-input-border: #{color(_Black)};
 		width: 100%;
-		background-color: color(Black);
+		background-color: color(_Black);
 		color: color(White);
 	}
 	&__total {
@@ -408,7 +407,7 @@ export default {
 		text-transform: uppercase;
 		font-weight: bold;
 		&:focus {
-			outline: 2px solid color(Black);
+			outline: 2px solid color(_Black);
 		}
 		&--active,
 		&--active:focus {
