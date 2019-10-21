@@ -191,7 +191,7 @@ export default {
 				Math.round((window.scrollY / (height - window.innerHeight)) * 10000) /
 				100;
 
-			console.log(this.scrolled.sideHeight);
+			// console.log(this.scrolled.sideHeight);
 
 			// this.$refs.brandList.scrollTop =
 			// 	(this.$refs.brandList.getBoundingClientRect().height / 100) *
@@ -274,6 +274,11 @@ export default {
 	opacity: 1;
 }
 .input-search {
+	&,
+	input {
+		color: white;
+	}
+
 	font-size: 1.5rem;
 }
 
