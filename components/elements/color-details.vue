@@ -1,43 +1,72 @@
 <template>
 	<div class="color-details">
-		<ul class="color-details__list">
-			<li v-for="(color, value, index) in colors" :key="index" v-trigger class="color-details__item">
-				<div class="color-details__container">
-					<div class="color-details__block" :class="`background--${value}`"></div>
-					<div class="color-details__info">
-						<h5>{{ value }}</h5>
-						<dl>
-							<dt>hex</dt>
-							<dd>{{ color }}</dd>
-						</dl>
-						<dl>
-							<dt>scss</dt>
-							<dd>$guyn-{{ value }}</dd>
-						</dl>
-						<dl>
-							<dt>css</dt>
-							<dd>--guyn-{{ value }}</dd>
-						</dl>
-						<dl>
-							<dt>less</dt>
-							<dd>@guyn-{{ value }}</dd>
-						</dl>
-						<dl>
-							<dt>js</dt>
-							<dd>guyn.{{ value }}</dd>
-						</dl>
+		<div class="input-text">
+			<input type="text" v-model="searchTerm" placeholder="Search color">
+		</div>
+		<client-only placeholder="Loading...">
+			<transition-group class="color-details__list" tag="ul" name="staggered-fade" v-bind:css="false" v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:leave="leave">
+
+				<li v-for="(color, index) in colors" :key="color.name.toLowerCase()" v-trigger class="color-details__item" v-bind:data-index="index">
+					<div class="color-details__container">
+						<div class="color-details__block" :class="`background--${color.name}`"></div>
+						<div class="color-details__info">
+							<h5>{{ color.name }}</h5>
+							<dl>
+								<dt>hex</dt>
+								<dd>{{ color.value }}</dd>
+							</dl>
+							<dl>
+								<dt>scss</dt>
+								<dd>$guyn-{{ color.name }}</dd>
+							</dl>
+							<dl>
+								<dt>css</dt>
+								<dd>--guyn-{{ color.name }}</dd>
+							</dl>
+							<dl>
+								<dt>less</dt>
+								<dd>@guyn-{{ color.name }}</dd>
+							</dl>
+							<dl>
+								<dt>js</dt>
+								<dd>guyn.{{ color.name }}</dd>
+							</dl>
+						</div>
 					</div>
-				</div>
-			</li>
-		</ul>
+				</li>
+			</transition-group>
+		</client-only>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+
 	</div>
 </template>
 
 <script>
 export default {
+	data: () => ({
+		searchTerm: null
+	}),
 	computed: {
 		colors() {
-			return this.$store.getters['guyn/getColors'];
+			return this.$store.getters['guyn/getColors'](this.searchTerm);
+		}
+	},
+	methods: {
+		beforeEnter: function(el) {
+			el.style.opacity = 0;
+			el.style.height = 0;
+		},
+		enter: function(el, done) {
+			var delay = el.dataset.index * 10;
+			setTimeout(function() {
+				Velocity(el, { opacity: 1, height: '1.6em' }, { complete: done });
+			}, delay);
+		},
+		leave: function(el, done) {
+			var delay = el.dataset.index * 10;
+			setTimeout(function() {
+				Velocity(el, { opacity: 0, height: 0 }, { complete: done });
+			}, delay);
 		}
 	}
 };
@@ -45,6 +74,8 @@ export default {
 
 <style lang="scss">
 @import '~tools';
+
+@include input-text-container('.input-text');
 
 .color-details {
 	&__list {
@@ -56,7 +87,7 @@ export default {
 	}
 	&__container {
 		background-color: color(White);
-		box-shadow: 0 0 1rem 0 color(Black, 0.1);
+		box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
 		width: 100%;
 		display: flex;
 		border-radius: 5px;
@@ -66,6 +97,7 @@ export default {
 		}
 	}
 	&__item {
+		height: 400px;
 		@media #{$small-only} {
 			width: 100%;
 		}
@@ -108,7 +140,8 @@ export default {
 			}
 		}
 		&.trigger {
-			transition: opacity $base-transition $base-cubic-bezier, transform $base-transition $base-cubic-bezier;
+			transition: opacity $base-transition $base-cubic-bezier,
+				transform $base-transition $base-cubic-bezier;
 			opacity: 0;
 			transform: translateY(100%);
 		}

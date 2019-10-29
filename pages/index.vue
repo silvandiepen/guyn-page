@@ -20,8 +20,7 @@
 						About
 					</h3>
 					<p>
-						Guyn is made as a set to get some styling through a whole system. From websites, till the code editor, just to get
-						it all in line.
+						Guyn is made as a set to get some styling through a whole system. From websites, till the code editor, just to get it all in line.
 					</p>
 					<p>Guyn is the Armenian word for color.</p>
 				</div>
@@ -34,10 +33,11 @@
 						Install
 					</h3>
 					<p>
-						The colorset of Guyn is usable in many different ways. Just the colorset is a npm package which includes all kinds
-						of formats like json, scss (map), css (custom properties), less (list) and a includable js file.
+						The colorset of Guyn is usable in many different ways. Just the colorset is a npm package which includes all kinds of formats like json, scss (map), css (custom properties), less (list) and a includable js file.
 					</p>
-					<code><pre>npm install guyn</pre></code>
+					<code>
+						<pre>npm install guyn</pre>
+					</code>
 				</div>
 			</div>
 		</section>
@@ -51,8 +51,7 @@
 					<div class="row">
 						<div class="column small-full medium-half">
 							<p>
-								The colorset can be used for many purposes. The npm package includes a css, json, scss, less and javascript
-								file.
+								The colorset can be used for many purposes. The npm package includes a css, json, scss, less and javascript file.
 							</p>
 						</div>
 						<div class="column small-full medium-half">
@@ -72,7 +71,9 @@
 						<div class="column small-full medium-half">
 							<ul>
 								<li>VSCode theme</li>
-								<li><a href="/themes/guyn-iterm.zip" download>iTerm theme</a></li>
+								<li>
+									<a href="/themes/guyn-iterm.zip" download>iTerm theme</a>
+								</li>
 								<li>Atom theme</li>
 							</ul>
 						</div>
@@ -131,9 +132,13 @@ export default {
 		setTop() {
 			const _this = this;
 			_this.offTop = window.scrollY;
-			_this.offTopPercentage = (window.innerHeight / 100) * (window.scrollY / 100);
+			_this.offTopPercentage =
+				window.innerHeight / 100 * (window.scrollY / 100);
 
-			_this.$refs.intro.style.setProperty('--scroll-top-percentage', this.offTopPercentage + '%');
+			_this.$refs.intro.style.setProperty(
+				'--scroll-top-percentage',
+				this.offTopPercentage + '%'
+			);
 		}
 	}
 };

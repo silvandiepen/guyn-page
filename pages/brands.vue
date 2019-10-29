@@ -30,7 +30,9 @@
 								:class="{ 'brands__character--active': char.character == startCharacter }"
 								:data-total="char.total"
 								@click="setCharacter(char.character)"
-							>{{ char.character }}</button>
+							>
+								{{ char.character }}
+							</button>
 						</div>
 					</div>
 					<button class="button button--default" @click="showModal = !showModal">
@@ -52,9 +54,7 @@
 								<p>
 									Brands you add here will only be added temporary and to your local machine. If you actually want to add brands,
 									please make a Pull Request on this
-									<a
-										href="https://github.com/silvandiepen/guyn"
-									>repository</a>
+									<a href="https://github.com/silvandiepen/guyn">repository</a>
 								</p>
 								<hr />
 								<div class="input-text">
@@ -62,7 +62,9 @@
 									<label>Brand name</label>
 								</div>
 								<div class="input-text">
-									<button @click="addColor">Add</button>
+									<button @click="addColor">
+										Add
+									</button>
 									<input v-model="currentAddColor" type="text" />
 									<label>Colors</label>
 								</div>
@@ -82,7 +84,9 @@
 									<label>Styleguide</label>
 								</div>
 								<hr />
-								<button class="button button--default" @click="addBrand">Add Brand</button>
+								<button class="button button--default" @click="addBrand">
+									Add Brand
+								</button>
 							</div>
 						</div>
 					</div>
@@ -91,7 +95,9 @@
 						<ul v-if="brands" class="brands__list">
 							<li v-for="(brand, idx) in filteredBrands" :key="idx" class="brands__item">
 								<header class="brands__header">
-									<h4 class="brands__title">{{ brand.title }}</h4>
+									<h4 class="brands__title">
+										{{ brand.title }}
+									</h4>
 									<span class="brands__maincolor-code" @click="doCopy(brand.colors[0])">{{ brand.colors[0] }}</span>
 								</header>
 								<div class="brands__maincolor" :style="`background-color: ${brand.colors[0]}`"></div>
@@ -172,10 +178,19 @@ export default {
 			return characters;
 		},
 		filteredBrands() {
-			if (this.searchTerm == '' && this.startCharacter == '')
-				return this.brands;
+			if (this.searchTerm == '' && this.startCharacter == '') return this.brands;
 			else return this.filterByCharacter(this.filterBySearchterm(this.brands));
 		}
+	},
+	mounted() {
+		window.addEventListener('scroll', () => {
+			this.setScrolled();
+		});
+		console.log(this.$refs.brandList, this.$refs.brandList.getBoundingClientRect());
+		this.scrolled.sideHeight = this.$refs.brandList.getBoundingClientRect().height;
+		window.addEventListener('resize', () => {
+			this.scrolled.sideHeight = this.$refs.brandList.getBoundingClientRect().height;
+		});
 	},
 	methods: {
 		setScrolled() {
@@ -187,9 +202,7 @@ export default {
 				document.documentElement.offsetHeight
 			);
 
-			this.scrolled.percentage =
-				Math.round((window.scrollY / (height - window.innerHeight)) * 10000) /
-				100;
+			this.scrolled.percentage = Math.round((window.scrollY / (height - window.innerHeight)) * 10000) / 100;
 
 			// console.log(this.scrolled.sideHeight);
 
@@ -213,9 +226,7 @@ export default {
 		filterBySearchterm(values) {
 			if (this.searchTerm == '') return values;
 			return values.filter((value) => {
-				return value.title
-					.toLowerCase()
-					.includes(this.searchTerm.toLowerCase());
+				return value.title.toLowerCase().includes(this.searchTerm.toLowerCase());
 			});
 		},
 		setCharacter(char) {
@@ -247,19 +258,6 @@ export default {
 			this.brands.push(this.add);
 			this.brands = orderBy(this.brands, 'title', 'asc');
 		}
-	},
-	mounted() {
-		window.addEventListener('scroll', () => {
-			this.setScrolled();
-		});
-		console.log(
-			this.$refs.brandList,
-			this.$refs.brandList.getBoundingClientRect()
-		);
-		this.scrolled.sideHeight = this.$refs.brandList.getBoundingClientRect().height;
-		window.addEventListener('resize', () => {
-			this.scrolled.sideHeight = this.$refs.brandList.getBoundingClientRect().height;
-		});
 	}
 };
 </script>
