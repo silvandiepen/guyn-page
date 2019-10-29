@@ -4,7 +4,8 @@
 			<input type="text" v-model="searchTerm" placeholder="Search color">
 		</div>
 		<client-only placeholder="Loading...">
-			<transition-group class="color-details__list" tag="ul" name="staggered-fade" v-bind:css="false" v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:leave="leave">
+			<!-- <transition-group class="color-details__list" tag="ul" v-bind:css="false" v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:leave="leave"> -->
+			<transition-group class="color-details__list" tag="ul">
 
 				<li v-for="(color, index) in colors" :key="color.name.toLowerCase()" v-trigger class="color-details__item" v-bind:data-index="index">
 					<div class="color-details__container">
@@ -52,22 +53,22 @@ export default {
 		}
 	},
 	methods: {
-		beforeEnter: function(el) {
-			el.style.opacity = 0;
-			el.style.height = 0;
-		},
-		enter: function(el, done) {
-			var delay = el.dataset.index * 10;
-			setTimeout(function() {
-				Velocity(el, { opacity: 1, height: '1.6em' }, { complete: done });
-			}, delay);
-		},
-		leave: function(el, done) {
-			var delay = el.dataset.index * 10;
-			setTimeout(function() {
-				Velocity(el, { opacity: 0, height: 0 }, { complete: done });
-			}, delay);
-		}
+		// beforeEnter: function(el) {
+		// 	// el.style.opacity = 0;
+		// 	// el.style.height = 0;
+		// },
+		// enter: function(el, done) {
+		// 	// var delay = el.dataset.index * 10;
+		// 	// setTimeout(function() {
+		// 	// 	Velocity(el, { opacity: 1, height: '1.6em' }, { complete: done });
+		// 	// }, delay);
+		// },
+		// leave: function(el, done) {
+		// 	// var delay = el.dataset.index * 10;
+		// 	// setTimeout(function() {
+		// 	// 	Velocity(el, { opacity: 0, height: 0 }, { complete: done });
+		// 	// }, delay);
+		// }
 	}
 };
 </script>
