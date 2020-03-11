@@ -1,13 +1,18 @@
 <template>
 	<div class="color-details">
 		<div class="input-text">
-			<input type="text" v-model="searchTerm" placeholder="Search color">
+			<input v-model="searchTerm" type="text" placeholder="Search color" />
 		</div>
 		<client-only placeholder="Loading...">
 			<!-- <transition-group class="color-details__list" tag="ul" v-bind:css="false" v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:leave="leave"> -->
 			<transition-group class="color-details__list" tag="ul">
-
-				<li v-for="(color, index) in colors" :key="color.name.toLowerCase()" v-trigger class="color-details__item" v-bind:data-index="index">
+				<li
+					v-for="(color, index) in colors"
+					:key="color.name.toLowerCase()"
+					v-trigger
+					class="color-details__item"
+					:data-index="index"
+				>
 					<div class="color-details__container">
 						<div class="color-details__block" :class="`background--${color.name}`"></div>
 						<div class="color-details__info">
@@ -38,7 +43,6 @@
 			</transition-group>
 		</client-only>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
-
 	</div>
 </template>
 
@@ -141,8 +145,7 @@ export default {
 			}
 		}
 		&.trigger {
-			transition: opacity $base-transition $base-cubic-bezier,
-				transform $base-transition $base-cubic-bezier;
+			transition: opacity $base-transition $base-cubic-bezier, transform $base-transition $base-cubic-bezier;
 			opacity: 0;
 			transform: translateY(100%);
 		}

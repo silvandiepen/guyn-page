@@ -1,0 +1,8 @@
+:root {
+	@each $color-name, $color-value in $custom-colors {
+		--color-#{to-lower-case($color-name)}: #{$color-value};
+		--color-#{to-lower-case($color-name)}-h: #{hue($color-value)};
+		--color-#{to-lower-case($color-name)}-s: #{saturation($color-value)};
+		--color-#{to-lower-case($color-name)}-l: #{lightness($color-value)};
+	}
+}

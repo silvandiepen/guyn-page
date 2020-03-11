@@ -45,17 +45,15 @@ export default {
 		};
 	},
 	mounted() {
-		const _this = this;
-		_this.setTop();
+		this.setTop();
 		window.addEventListener('scroll', () => {
-			_this.setTop();
+			this.setTop();
 		});
 	},
 	methods: {
 		setTop() {
-			const _this = this;
-			_this.offTop = window.scrollY;
-			_this.$refs.logo.style.setProperty('--scroll-top', this.offTop);
+			this.offTop = window.scrollY;
+			this.$refs.logo.style.setProperty('--scroll-top', this.offTop);
 		}
 	}
 };
@@ -76,19 +74,23 @@ svg {
 
 		&:nth-child(1) {
 			fill: color(_Red);
-			transform: translateY(calc(var(--scroll-top) * -0.1px)) scale(calc(var(--scroll-top) * 0.01 + 1));
+			transform: translateY(calc(var(--scroll-top) * -0.1px))
+				scale(calc(var(--scroll-top) * 0.01 + 1));
 		}
 		&:nth-child(2) {
 			fill: color(Dark);
-			transform: translateY(calc(var(--scroll-top) * -0.2px)) scale(calc(var(--scroll-top) * 0.015 + 1));
+			transform: translateY(calc(var(--scroll-top) * -0.2px))
+				scale(calc(var(--scroll-top) * 0.015 + 1));
 		}
 		&:nth-child(3) {
 			fill: color(_Yellow);
-			transform: translateY(calc(var(--scroll-top) * -0.3px)) scale(calc(var(--scroll-top) * 0.02 + 1));
+			transform: translateY(calc(var(--scroll-top) * -0.3px))
+				scale(calc(var(--scroll-top) * 0.02 + 1));
 		}
 		&:nth-child(4) {
 			fill: color(PurpleDark);
-			transform: translateY(calc(var(--scroll-top) * -0.6px)) scale(calc(var(--scroll-top) * 0.025 + 1));
+			transform: translateY(calc(var(--scroll-top) * -0.6px))
+				scale(calc(var(--scroll-top) * 0.025 + 1));
 		}
 	}
 }

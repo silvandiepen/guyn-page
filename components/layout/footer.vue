@@ -1,6 +1,13 @@
 <template>
 	<footer id="footer" class="footer">
-		<p>Made by <a href="https://www.silvandiepen.nl">Sil van Diepen</a></p>
+		<div class="footer__navigation">
+			<nuxt-link to="colors">
+				Colors
+			</nuxt-link>
+		</div>
+		<div div class="footer__bottom">
+			<p>Made by <a href="https://www.silvandiepen.nl">Sil van Diepen</a></p>
+		</div>
 	</footer>
 </template>
 

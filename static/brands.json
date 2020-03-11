@@ -3791,6 +3791,8 @@
 			"meta": { "url": "https://www.totaljobs.com/" }
 		},
 		{ "title": "Treehouse", "colors": ["#6fbc6d", "#47535b"], "meta": {} },
+
+		{ "title": "Treehouse", "colors": ["#6fbc6d", "#47535b"], "meta": {} },
 		{
 			"title": "Trello",
 			"colors": [
